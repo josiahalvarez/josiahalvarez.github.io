@@ -1,3 +1,4 @@
 .nohighlight {
-  outline: none !important;
+  outline: none;
+  border: 0;
 }
