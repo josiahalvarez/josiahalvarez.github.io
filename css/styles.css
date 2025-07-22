@@ -107,9 +107,23 @@ body {
 	/*margin: 0 auto;*/
 	/*height: 100vh;*/
 	/*height: 200%;*/
-	background: #f4f4f4;
+	/*background: #f4f4f4;/*
 	/*border: 1px dashed red;*/
 	
+}
+
+.scrollable {
+	flex: 1;
+	white-space: pre;
+	background: white;
+	overflow-y:auto;
+	display: flex;
+	justify-content: center;
+	align-items: flex-start;
+	
+	font-size: 1em;
+	font-family: monospace;
+	padding: 20px;
 }
 
 .header {
@@ -117,7 +131,7 @@ body {
 	text-align: center;
 	background-color: white;
 	padding-top: 50px;
-	padding-bottom: 60px;
+	padding-bottom: 0px;
 	position: fixed;
 	top: 0;
 	left: 0;
@@ -142,10 +156,9 @@ body {
 	font-size: 2em;
 	font-weight: bold;
 	font-style: italic;
-
 }
 
-.scrollable {
+.scrollable-filesys {
 	flex: 1;
 	white-space: pre;
 	background: #f4f4f4;
@@ -162,4 +175,37 @@ body {
 pre {
 	tab-size: 2;
 	-moz-tab-size: 2; /* for Firefox support */
+}
+
+.about-section {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 40px;
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  background: white;
+  padding: 150px 20px;
+  border-radius: 12px;
+}
+
+.about-textbox {
+  flex: 1;
+  background: white;
+  padding: 50px 50px 20px 20px;
+  border-radius: 8px;
+  font-size: 1em;
+  font-family: inherit;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  text-align: left;
+}
+
+.about-photo img {
+  width: 180px;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  background: #eee;
 }
