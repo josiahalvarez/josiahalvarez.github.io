@@ -1,5 +1,6 @@
 * {
   box-sizing: border-box;
+	background-color: white;
 }
 
 body {
@@ -135,7 +136,7 @@ body {
 	/*margin-bottom: 30px;*/
 	margin: 0 auto;
 	display: inline-block;
-	
+	color: black;
 	font-size: 2em;
 	font-weight: bold;
 	font-style: italic;
