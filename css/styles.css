@@ -5,8 +5,8 @@
 body {
   margin: 0;
   font-family: sans-serif;
-  display: flex;
-  height: 100vh;
+  /*display: flex;
+  height: 100vh; this is removing the flex display and height from the body element*/
 }
 
 
@@ -14,26 +14,42 @@ body {
   width: 100%;
   display: flex;
   justify-content: center;
+  padding-top: 100px; 
+
+
 }
 
 .container {
   display: flex;
-  height: 100vh;
+  align-items: flex-start;
+  height: auto;
   max-width: 1000px;
-  width: 50%;
+  width: 100%;
+  position: relative;
+  min-height: 500px;
+  margin: 0 auto;
 }
 
 /*GOOD*/
 	.sidebar {
+	  position: relative;
+	  top: 150px;
+	  left: 0;
+	  min-width: 180px;
 	  width: 200px;
+	  height: auto;
 	  background-color: white;
 	  padding: 40px 20px;
+	  z-index: 1;
+	  display: flex;
+	  flex-direction: column;
+	  justify-content: center;
 	  /*border-right: 1px solid #ccc;*/
 	  /*flex-shrink: 0;*/
 	  
-	  display:flex;
-	  flex-direction: column;
-	  justify-content: center;
+	  
+	 
+	  
 	  /*align-items: flex-start;*/
 	}
 
@@ -71,34 +87,51 @@ body {
 	  color: darkgreen;
 	}
 
+.sidebar-center {
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+	z-index: 2;
+}
+
 .main { 
 	flex: 1;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	justify-content: flex-start;
-	max-width: 1000px;
+	padding-top: 50px;
+	max-width: 600px;
 	width: 100%;
-	margin: 0 auto;
+	/*margin: 0 auto;*/
 	/*height: 100vh;*/
 	/*height: 200%;*/
 	background: #f4f4f4;
-	border: 1px dashed red;
+	/*border: 1px dashed red;*/
 	
 }
 
 .header {
-	padding: 60px 0;
-	max-width: 1000px;
 	width: 100%;
 	text-align: center;
-	/*border-bottom: 1px solid #ccc;*/
 	background-color: white;
-	position: sticky;
+	padding-top: 50px;
+	padding-bottom: 60px;
+	position: fixed;
 	top: 0;
-	z-index: 1; 
+	left: 0;
+	z-index: 1000;
+	max-width: none;
+	
+	
+	/*border-bottom: 1px solid #ccc;*/
+	
+	
+	/*top: 0;
+	z-index: 1;*/ 
 
-	border: 1px dashed red;
+	/*border: 1px dashed red;*/
 }
 	
 .header h1 {	
@@ -124,4 +157,9 @@ body {
 	font-size: 1em;
 	font-family: monospace;
 	padding: 20px;
+}
+
+pre {
+	tab-size: 2;
+	-moz-tab-size: 2; /* for Firefox support */
 }
