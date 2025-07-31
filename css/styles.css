@@ -1,119 +1,32 @@
 * {
   box-sizing: border-box;
-	background-color: white;
+	margin: 0;
+	padding: 0; 
+
 }
 
 body {
-  margin: 0;
   font-family: sans-serif;
+	background-color: white;
   /*display: flex;
   height: 100vh; this is removing the flex display and height from the body element*/
 }
 
-
-.outer-wrapper { 
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  padding-top: 100px; 
+.grid-layout {
+	display: grid;
+	grid-template-columns: 200px 1fr 250px;
+	grid-template-areas: 
+		"sidebar content info";
+	grid-template-rows: 1fr;
+	gap: 1rem; 
+	margin-top: 100px; 
+	height: calc(100vh - 100px);
 }
 
-.container {
-  display: flex;
-  align-items: flex-start;
-  height: auto;
-  max-width: 1000px;
-  width: 100%;
-  position: relative;
-  min-height: 500px;
-  margin: 0 auto;
-}
+.sidebar { grid-area: sidebar; }
+.content { grid-area: content; }
+.info-box { grid-area: info; }
 
-/* Sidebar styles */
-	.sidebar {
-	  position: relative;
-	  top: 150px;
-	  left: 0;
-	  min-width: 180px;
-	  width: 200px;
-	  height: auto;
-	  background-color: white;
-	  padding: 40px 20px;	
-	  z-index: 1;
-	  display: flex;
-	  flex-direction: column;
-	  justify-content: center;
-	  /*border-right: 1px solid #ccc;*/
-	  /*flex-shrink: 0;*/
-	  /*align-items: flex-start;*/
-	}
-	.sidebar nav a {
-	  display: block;
-	  margin: 20px 0;
-	  font-weight: bold;
-	  text-decoration: none;
-	  color: black;
-	  font-size: 1.2em;
-	  position: relative;
-	}
-	.sidebar nav a:hover {
-	  color: darkgreen;
-	}
-	.sidebar nav a::after {
-	  content: '';
-	  display: block;
-	  width: 0;
-	  height: 2px;
-	  background: green;
-	  transition: width 0.3s;
-	  position: absolute;
-	  bottom: -4px;
-	  left: 0;
-	}
-	.sidebar nav a:hover::after {
-	  width: 100%;
-	}
-	.sidebar nav .active {
-	  color: darkgreen;
-	}
-.sidebar-home {
-	position: absolute;
-	left: 50%;
-	top: 50%;
-	transform: translate(-50%, -50%);
-	z-index: 2;
-}
-
-.main { 
-	flex: 1;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: flex-start;
-	padding-top: 50px;
-	max-width: 600px;
-	width: 100%;
-	/*margin: 0 auto;*/
-	/*height: 100vh;*/
-	/*height: 200%;*/
-	/*background: #f4f4f4;/*
-	/*border: 1px dashed red;*/
-	
-}
-
-.scrollable {
-	flex: 1;
-	white-space: pre;
-	background: white;
-	overflow-y:auto;
-	display: flex;
-	justify-content: center;
-	align-items: flex-start;
-	
-	font-size: 1em;
-	font-family: sans-serif;
-	padding: 20px;
-}
 
 .header {
 	width: 100%;
@@ -142,53 +55,132 @@ body {
 	font-style: italic;
 }
 
-/*file system styles*/
-.scrollable-filesys {
-	flex: 1;
-	white-space: pre;
-	background: #f4f4f4;
-	overflow-y:auto;
-	display: flex;
-	justify-content: center;
-	align-items: flex-start;
-	
-	font-size: 1em;
-	font-family: monospace;
-	padding: 20px;
+
+/* Sidebar styles */
+.sidebar {
+  position: fixed;
+  top: 250px; /* header height + padding */
+	left: 200px;
+  width: 150px;
+  height: calc(100vh - 100px);
+  background: white;	
+  /*border: 2px solid black;*/
+  padding: 1rem;
+  overflow-y: auto;
 }
+
+.sidebar ul {
+  list-style: none;
+}
+
+.sidebar li {
+  margin-bottom: 1rem;
+}
+
+.sidebar a {
+  text-decoration: none;
+  color: black;
+}
+	
+/* Sidebar animations */
+nav a {
+	  display: block;
+	  margin: 20px 0;
+	  font-weight: bold;
+	  text-decoration: none;
+	  color: black;
+	  font-size: 1.2em;
+	  position: relative;
+	}
+nav a:hover {
+	  color: darkgreen;
+	}
+nav a::after {
+	  content: '';
+	  display: block;
+	  width: 0;
+	  height: 2px;
+	  background: green;
+	  transition: width 0.3s;
+	  position: absolute;
+	  bottom: -4px;
+	  left: 0;
+	}
+nav a:hover::after {
+	  width: 100%;
+	}
+nav .active {
+	  color: darkgreen;
+	}
+
+.sidebar-home {
+	position: absolute;
+	left: 50%;
+	top: 75%;
+	transform: translate(-50%, -50%);
+	z-index: 2;
+}
+
+/* Scrollable Main Content */
+.content {
+	margin: 0 auto;
+	max-width: 800px;
+  padding: 1rem;
+  background: white;
+  /*border: 2px solid black;*/
+  height: 100%;
+  overflow-y: auto;
+  padding-top: 3rem; /* space for fixed/sticky title */
+}
+
+.content h2 {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.scrollable p {
+  margin-bottom: 1rem;
+  line-height: 1.5;
+}
+
 pre {
 	tab-size: 2;
 	-moz-tab-size: 2; /* for Firefox support */
+	background-color: lightgrey;
+	padding: 1rem;
 }
 
 /* About section styles */
-.about-section {
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  gap: 40px;
-  width: 100%;
-  max-width: 800px;
-  margin: 0 auto;
-  background: white;
-  padding: 150px 20px;
-  border-radius: 12px;
-}
 .about-textbox {
-  flex: 1;
-  background: white;
-  padding: 0px 50px 0px 20px;
-  border-radius: 8px;
-  font-size: 1em;
-  font-family: inherit;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
-  text-align: left;
+	margin-top: 200px;
 }
+
 .about-photo img {
+	top: 200px;
   width: 180px;
   height: 180px;
   object-fit: cover;
   border-radius: 12px;
   box-shadow: 0 2px 8px rgba(0,0,0,0.08);
   background: #eee;
+}
+
+/* Fixed Info Box (Right Panel) */
+.info-box {
+	font-weight:bold;
+	margin-top: 200px;
+  position: fixed;
+  top: 80px;
+  right: 200px;
+  width: 250px;
+  height: calc(100vh - 80px);
+  background: white;
+  /*border: 2px solid black;*/
+  padding: 1rem;
+  overflow-y: auto;
+}
+
+#map {
+  height: 200px;
+  margin-top: 1rem;
 }
