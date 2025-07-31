@@ -1,0 +1,15 @@
+/*
+* {
+  box-sizing: border-box;
+	background-color: white;
+}
+*/
+
+html, body {
+  margin: 0;
+  font-family: sans-serif;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  height: 100vh;
+}
