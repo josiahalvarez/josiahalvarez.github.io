@@ -124,10 +124,10 @@ nav .active {
 /* Scrollable Main Content */
 .content {
 	margin: 0 auto;
-	max-width: 800px;
+	max-width: 700px;
   padding: 1rem;
   background: white;
-  /*border: 2px solid black;*/
+  /* border: 2px solid black; */
   height: 100%;
   overflow-y: auto;
   padding-top: 3rem; /* space for fixed/sticky title */
@@ -141,6 +141,7 @@ nav .active {
 .scrollable p {
   margin-bottom: 1rem;
   line-height: 1.5;
+	/* border: 2px solid */
 }
 
 pre {
@@ -183,4 +184,11 @@ pre {
 #map {
   height: 200px;
   margin-top: 1rem;
+}
+
+img { 
+	max-width: 100%;
+	height: auto;
+	display: block;
+	margin: 0 auto;
 }
