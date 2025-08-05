@@ -13,6 +13,7 @@ This website is an evolving canvas.
 
 - HTML5
 - CSS3
+- LEAFLET (JS)
 
 ## Goals for The Website
 - Mobile-friendly design

@@ -2,7 +2,7 @@
 	/*margin-bottom: 30px;*/
 	margin: 0 auto;
 	display: inline-block;
-	color: #BAC584;
+	color: #C2B280;
 	font-size: 2em;
 	font-weight: bold;
 	font-style: italic;
@@ -18,14 +18,14 @@ nav a {
 	  position: relative;
 	}
 nav a:hover {
-	  color: #BAC584;
+	  color: #C2B280;
 	}
 nav a::after {
 	  content: '';
 	  display: block;
 	  width: 0;
 	  height: 2px;
-	  background: #BAC584;
+	  background: #C2B280;
 	  transition: width 0.3s;
 	  position: absolute;
 	  bottom: -4px;
@@ -35,5 +35,5 @@ nav a:hover::after {
 	  width: 100%;
 	}
 nav .active {
-	  color: #BAC584;
+	  color: #C2B280;
 	}
