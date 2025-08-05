@@ -1,6 +1,6 @@
 # The Website
 
-Live Demo: [lonnywalkeriv.github.io](https://lonnywalkeriv.github.io)
+Live Demo: [josiahalvarez.github.io](https://josiahalvarez.github.io)
 
 ## Philosophy
 
