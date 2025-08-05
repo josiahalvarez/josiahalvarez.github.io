@@ -27,30 +27,33 @@
 		</nav>
 	<div class="content">
 		<div class="scrollable">
+      <h2>Sunnylands</h2>
       <p>Talking about the building</p>
 <img src="../images/about_photo.png" alt="About Photo">
 	  </div>
 
   <div class="info-box" style="margin-top: 150px;">
-    <p>Date Built:</p>
-    <p>Architect:</p>
-    <p>Location:</p>
-    <p>Firm:</p>
+    <p>Built in: 1966</p>
+    <p>Architect: A. Quincy Jones</p>
+    <p>Location: Rancho Mirage</p>
     <div id="map" style="height: 200px; width: 200px;"></div>
     <p style="font-size: 9px;">OpenStreetMap</p>
     <script>
       // Initialize the map and set view to [latitude, longitude] and zoom level
-      const map = L.map('map', {attributionControl: false}).setView([40.7128, -74.0060], 13); // NYC example
+      const map = L.map('map', {attributionControl: false}).setView([33.7803, -116.4084], 13); // NYC example
 
       
       // Add OpenStreetMap tile layer
-      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        attribution: 'OpenStreetMap'
+      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
+
+      // Switch to a dark theme (e.g., CartoDB)
+      L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+      attribution: '&copy; <a href="https://carto.com/">CARTO</a>'
       }).addTo(map);
 
       // Optional: Add a marker
-      L.marker([40.7128, -74.0060]).addTo(map)
-        .bindPopup('The Building')
+      L.marker([33.7803, -116.4084]).addTo(map)
+        
         .openPopup();
     </script>
   </div>
