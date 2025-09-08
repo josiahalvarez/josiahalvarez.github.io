@@ -1,15 +1,32 @@
+/* === Tokens === */
+:root{
+  --header-h: 64px;
+  --sidebar-w: 200px;
+  --gap: 16px;
+  --max: 72ch;
+
+  --bg: #fff;
+  --text: #0c0d0e;
+  --accent: darkgreen;
+
+  /* fluid type scale */
+  --fs-0: clamp(14px, 1.6vw + 10px, 16px); /* body */
+  --fs-1: clamp(18px, 2.0vw + 12px, 22px); /* h2/h3 */
+  --fs-2: clamp(24px, 3.5vw + 14px, 32px); /* h1 */
+}
+
+/* === Global Styles === */
 * {
   box-sizing: border-box;
 	margin: 0;
 	padding: 0; 
-
 }
 
 body {
   font-family: sans-serif;
 	background-color: white;
   /*display: flex;
-  height: 100vh; this is removing the flex display and height from the body element*/
+  height: 100vh; */
 }
 
 .grid-layout {
@@ -19,7 +36,6 @@ body {
 		"sidebar content info";
 	grid-template-rows: 1fr;
 	gap: 1rem; 
-	margin-top: 100px; 
 	height: calc(100vh - 100px);
 }
 
@@ -28,27 +44,20 @@ body {
 .info-box { grid-area: info; }
 
 
+/* === Header styles === */
 .header {
-	width: 100%;
+	position: sticky;
 	text-align: center;
-	background-color: white;
-	padding-top: 50px;
-	padding-bottom: 0px;
-	position: fixed;
-	top: 0;
-	left: 0;
-	z-index: 1000;
+	height: var(--header-h);
+	width: 100%;
 	max-width: none;
-	/*border-bottom: 1px solid #ccc;*/
-	/*top: 0;
-	z-index: 1;*/ 
+	border-bottom: 1px solid #ccc;
 	/*border: 1px dashed red;*/
 }
 	
-.header h1 {	
-	/*margin-bottom: 30px;*/
+.header h1 {
 	margin: 0 auto;
-	display: inline-block;
+	margin-top: 20px;
 	color: darkgreen;
 	font-size: 2em;
 	font-weight: bold;
@@ -58,39 +67,44 @@ body {
 
 /* Sidebar styles */
 .sidebar {
-  position: fixed;
-  top: 250px; /* header height + padding */
-	left: 200px;
-  width: 150px;
-  height: calc(100vh - 100px);
-  background: white;	
-  /*border: 2px solid black;*/
-  padding: 1rem;
-  overflow-y: auto;
+  display: flex;
+	justify-content: center;
+	gap: 1rem;
 }
 
 .sidebar ul {
   list-style: none;
 }
-
 .sidebar li {
   margin-bottom: 1rem;
 }
-
 .sidebar a {
   text-decoration: none;
   color: black;
 }
-	
+
+.sidebar.sidebar-home{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;         /* vertical centering */
+  align-items: center;             /* horizontal centering */
+  gap: .25rem;
+  min-height: calc(100dvh - var(--header-h));
+  width: 100%;
+}
+
+
 /* Sidebar animations */
 nav a {
+		position: relative;
 	  display: block;
 	  margin: 20px 0;
+
 	  font-weight: bold;
 	  text-decoration: none;
 	  color: black;
 	  font-size: 1.2em;
-	  position: relative;
+	  
 	}
 nav a:hover {
 	  color: darkgreen;
@@ -113,35 +127,27 @@ nav .active {
 	  color: darkgreen;
 	}
 
-.sidebar-home {
-	position: absolute;
-	left: 50%;
-	top: 75%;
-	transform: translate(-50%, -50%);
-	z-index: 2;
+/* === Main Content === */
+.content {
+	max-width: var(--max);
+  padding: 1rem 0;
+	margin-inline: auto;
+  height: 100%;
+	/* border: 2px solid black; */
 }
 
-/* Scrollable Main Content */
-.content {
-	margin: 0 auto;
-	max-width: 700px;
-  padding: 1rem;
-  background: white;
-  /* border: 2px solid black; */
-  height: 100%;
-  overflow-y: auto;
-  padding-top: 3rem; /* space for fixed/sticky title */
-}
 
 .content h2 {
   text-align: center;
   margin-bottom: 1rem;
 }
-
-.scrollable p {
-  margin-bottom: 1rem;
-  line-height: 1.5;
-	/* border: 2px solid */
+.content h3, h4, h5, h6 {
+	margin-left : 1rem;
+	margin-bottom: .5rem;
+}
+li { 
+	margin-left: 1.5rem;
+	margin-right: 1rem;
 }
 
 pre {
@@ -205,4 +211,50 @@ ul a {
 	font-weight: bold;
 	color: darkgreen;
 
+}
+
+/* --- mobile overrides --- */
+@media (max-width: 1000px) {
+  .grid-layout {
+    display: block;              /* stop being a grid */
+    
+    height: auto;
+  }
+
+  .sidebar {
+    position: static;            /* cancel fixed/absolute */
+    width: auto;
+    height: auto;
+		overflow-x: auto;
+    
+  }
+
+  .content {
+    max-width: var(--max);
+    margin-inline: auto;
+    padding: 1rem 0;
+  }
+
+  .info-box {
+    position: static;            /* no longer fixed */
+    width: auto;
+    height: auto;
+    margin-top: var(--gap);
+  }
+	
+}
+
+/* === Desktop Overrides === */
+@media (min-width: 1001px) {
+	.sidebar {
+		position: sticky;       
+		display: inline-block;      /* stay in place */
+		top: 0;
+		left: 0;
+		width: var(--sidebar-w);
+		height: 100%;
+		padding: var(--gap);
+		background: white;
+		/* border-right: 1px solid #ccc; */ /* optional border */
+	}
 }
