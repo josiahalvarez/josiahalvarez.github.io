@@ -257,4 +257,18 @@ ul a {
 		background: white;
 		/* border-right: 1px solid #ccc; */ /* optional border */
 	}
+ .sidebar-home {
+    position: static !important;
+    display: flex !important;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: auto;
+    height: auto;
+    min-height: 0;
+    background: none;
+    box-shadow: none;
+    margin: 0 auto;
+    gap: 1.5rem;
+  }
 }
