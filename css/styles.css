@@ -135,7 +135,9 @@ nav .active {
 	/* border: 2px solid black; */
 }
 
-
+p { 
+	margin-left: 1rem;
+}
 .content h2 {
   text-align: center;
   margin-bottom: 1rem;
