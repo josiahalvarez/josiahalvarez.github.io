@@ -209,9 +209,31 @@ ul a {
 	text-decoration: none;
 	font-weight: bold;
 	color: darkgreen;
-
 }
 
+ul a {
+  position: relative;           /* Needed for ::after positioning */
+  display: inline-block;        /* Ensures underline is correct width */
+  text-decoration: none;
+  font-weight: bold;
+  color: darkgreen;
+}
+
+ul a::after {
+  content: '';
+  display: block;
+  width: 0;
+  height: 2px;
+  background: green;
+  transition: width 0.3s;
+  position: absolute;
+  bottom: -.5px;
+  left: 0;
+}
+
+ul a:hover::after {
+  width: 100%;
+}
 /* --- mobile overrides --- */
 @media (max-width: 1000px) {
   .grid-layout {
