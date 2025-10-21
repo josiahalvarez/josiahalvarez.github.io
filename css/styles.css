@@ -63,6 +63,13 @@ body {
 	font-style: italic;
 }
 
+.header a {
+  text-decoration: none;
+}
+.header a:hover h1 {
+  color: green;
+}
+
 
 /* Sidebar styles */
 .sidebar {
