@@ -244,7 +244,7 @@ ul a:hover::after {
   width: 100%;
 }
 /* --- Mobile Overrides --- */
-@media (max-width: 1500px) {
+@media (max-width: 2000px) {
   .grid-layout {
     display: block;              /* stop being a grid */
     
@@ -275,7 +275,7 @@ ul a:hover::after {
 }
 
 /* === Desktop Overrides === */
-@media (min-width: 1501px) {
+@media (min-width: 2001px) {
 	.sidebar {
 		position: sticky;       
 		display: inline-block;      /* stay in place */
@@ -287,7 +287,8 @@ ul a:hover::after {
 		background: white;
 		/* border-right: 1px solid #ccc; */ /* optional border */
 		margin-top: 120%;
-    margin-left: 100%
+    margin-left: 100%;
+    justify-self: center; 
 
 	}
  .sidebar-home {
