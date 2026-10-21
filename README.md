@@ -1,6 +1,6 @@
 # The Website
 
-Live Demo: [josiahalvarez.github.io](https://josiahalvarez.github.io) or [jalva218.tech](https://jalva218.tech/)
+Live Demo: [josiahálvarez.github.io](https://josiahálvarez.github.io) or [jalva218.tech](https://jalva218.tech/)
 
 ## Philosophy
 
